@@ -66,27 +66,30 @@ namespace WindowsFormsApplication2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Regex regexPattern = new Regex("[a-g]");
+
+            // Invoice Number Check
+            Regex regexPattern = new Regex("^[A-Z]{3}[0-9]{8}$");
 
             string userChar = textBox2.Text;
             bool isValid = regexPattern.IsMatch(userChar);
 
-            label4.Text = isValid ? "Exist" : "Character Not Exist Between a-g";
+            label4.Text = isValid ? "Invoice Valid" : "Invoice Invalid";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Regex regexPattern = new Regex("^[a-g]{3}");
+            Regex regexPattern = new Regex("^[a-zA-Z]{3}[0-9]{8}$");
 
             string userChar = textBox3.Text;
             bool isValid = regexPattern.IsMatch(userChar);
 
-            label7.Text = isValid ? "Correct Pattern" : "InCorrect";
+            label7.Text = isValid ? "Invoice Valid" : "Invoice Invalid";
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Regex regexPattern = new Regex("^[a-g]{1,3}$");
+            // Website Url Check
+            Regex regexPattern = new Regex("^(http|https)://(www){0,1}.[a-zA-Z0-9./_-]+.(co|com)");
 
             string userChar = textBox4.Text;
             bool isValid = regexPattern.IsMatch(userChar);
@@ -96,7 +99,7 @@ namespace WindowsFormsApplication2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Regex regexPattern = new Regex("^[0-9]{8}$");
+            Regex regexPattern = new Regex("^[0-9]{4}-[0-9]{7}$");
 
             string userChar = textBox5.Text;
             bool isValid = regexPattern.IsMatch(userChar);
@@ -111,12 +114,17 @@ namespace WindowsFormsApplication2
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Regex regexPattern = new Regex("^[0-9]{3,7}$");
+        
+        }
 
-            string userChar = textBox6.Text;
-            bool isValid = regexPattern.IsMatch(userChar);
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
 
-            label16.Text = isValid ? "Correct" : "InCorrect";
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
